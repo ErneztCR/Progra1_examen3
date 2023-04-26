@@ -1,5 +1,5 @@
 
-package resolucionexamen;
+package ErnestoVargasExamen3;
 
 public class Resolucionexamen {
 

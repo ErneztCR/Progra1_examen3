@@ -1,5 +1,5 @@
 
-package resolucionexamen;
+package ErnestoVargasExamen3;
 
 /**
  *
@@ -21,7 +21,7 @@ public class FrmReporte extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -88,7 +88,7 @@ public class FrmReporte extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(70, 330, 110, 30);
         getContentPane().add(tnombre);
-        tnombre.setBounds(200, 270, 130, 22);
+        tnombre.setBounds(200, 270, 130, 24);
 
         jLabel5.setText("Buscar por nombre");
         getContentPane().add(jLabel5);
@@ -101,7 +101,7 @@ public class FrmReporte extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bbuscar);
-        bbuscar.setBounds(440, 270, 140, 22);
+        bbuscar.setBounds(440, 270, 140, 24);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

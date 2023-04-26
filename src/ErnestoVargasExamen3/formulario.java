@@ -1,5 +1,5 @@
 
-package resolucionexamen;
+package ErnestoVargasExamen3;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -28,7 +28,7 @@ public class formulario extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -78,24 +78,24 @@ public class formulario extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(40, 100, 90, 40);
         jPanel1.add(tedad);
-        tedad.setBounds(150, 110, 80, 22);
+        tedad.setBounds(150, 110, 80, 24);
 
         jLabel3.setText("Nombre:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(40, 60, 90, 40);
         jPanel1.add(tnombre);
-        tnombre.setBounds(150, 70, 180, 22);
+        tnombre.setBounds(150, 70, 180, 24);
 
         buttonGroup1.add(rsi);
         rsi.setSelected(true);
         rsi.setText("Si");
         jPanel1.add(rsi);
-        rsi.setBounds(160, 190, 60, 20);
+        rsi.setBounds(160, 190, 60, 28);
 
         buttonGroup1.add(rno);
         rno.setText("No");
         jPanel1.add(rno);
-        rno.setBounds(260, 190, 98, 20);
+        rno.setBounds(260, 190, 98, 28);
 
         jButton1.setText("Salvar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -115,7 +115,7 @@ public class formulario extends javax.swing.JFrame {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(40, 140, 90, 40);
         jPanel1.add(tcorreo);
-        tcorreo.setBounds(150, 150, 180, 22);
+        tcorreo.setBounds(150, 150, 180, 24);
 
         jLabel5.setText("NUMERO ENCUESTA:");
         jPanel1.add(jLabel5);
@@ -174,15 +174,16 @@ public class formulario extends javax.swing.JFrame {
         jPanel1.setBounds(20, 20, 490, 400);
 
         TablaEncuesta.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null }
-                },
-                new String[] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }));
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
         jScrollPane1.setViewportView(TablaEncuesta);
 
         getContentPane().add(jScrollPane1);

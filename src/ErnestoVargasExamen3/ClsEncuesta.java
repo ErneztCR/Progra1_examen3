@@ -1,5 +1,5 @@
 
-package resolucionexamen;
+package ErnestoVargasExamen3;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
