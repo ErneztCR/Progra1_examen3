@@ -1,6 +1,7 @@
-
 package ErnestoVargasExamen3;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,7 +17,7 @@ public class formulario extends javax.swing.JFrame {
 
     public formulario() {
         initComponents();
-        String[] columnas = new String[] { "Nombre:", "Edad:", "Correo:,", "Tiene Vehiculo" };
+        String[] columnas = new String[]{"Nombre:", "Edad:", "Correo:,", "Tiene Vehiculo"};
         modeloTabla.setColumnIdentifiers(columnas);
         TablaEncuesta.setModel(modeloTabla);
     }
@@ -44,22 +45,28 @@ public class formulario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         tcorreo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        lnumero = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        lno = new javax.swing.JLabel();
-        lsi = new javax.swing.JLabel();
         bagregar = new javax.swing.JButton();
         bborrar = new javax.swing.JButton();
         bmodificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaEncuesta = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        lno = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lsi = new javax.swing.JLabel();
+        lnumero = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(880, 630));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -70,32 +77,32 @@ public class formulario extends javax.swing.JFrame {
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(null);
 
-        jLabel1.setText("Tiene Carro?");
+        jLabel1.setText("ACTIVO");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 180, 90, 40);
+        jLabel1.setBounds(330, 130, 90, 40);
 
-        jLabel2.setText("Edad");
+        jLabel2.setText("Cantidad:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(40, 100, 90, 40);
         jPanel1.add(tedad);
         tedad.setBounds(150, 110, 80, 24);
 
-        jLabel3.setText("Nombre:");
+        jLabel3.setText("Codigo:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(40, 60, 90, 40);
         jPanel1.add(tnombre);
-        tnombre.setBounds(150, 70, 180, 24);
+        tnombre.setBounds(150, 70, 80, 24);
 
         buttonGroup1.add(rsi);
         rsi.setSelected(true);
         rsi.setText("Si");
         jPanel1.add(rsi);
-        rsi.setBounds(160, 190, 60, 28);
+        rsi.setBounds(290, 170, 60, 28);
 
         buttonGroup1.add(rno);
         rno.setText("No");
         jPanel1.add(rno);
-        rno.setBounds(260, 190, 98, 28);
+        rno.setBounds(360, 170, 60, 28);
 
         jButton1.setText("Salvar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,39 +116,17 @@ public class formulario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(40, 240, 130, 40);
+        jButton1.setBounds(30, 370, 130, 40);
 
-        jLabel4.setText("Correo");
+        jLabel4.setText("Descripcion:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(40, 140, 90, 40);
+        jLabel4.setBounds(270, 60, 90, 40);
         jPanel1.add(tcorreo);
-        tcorreo.setBounds(150, 150, 180, 24);
+        tcorreo.setBounds(360, 70, 180, 24);
 
-        jLabel5.setText("NUMERO ENCUESTA:");
+        jLabel5.setText("CONTROL DE INVENTARIOS");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(210, 20, 170, 30);
-
-        lnumero.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lnumero.setForeground(new java.awt.Color(255, 0, 0));
-        lnumero.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(lnumero);
-        lnumero.setBounds(390, 10, 90, 60);
-
-        jLabel6.setText("No Tienen Carro");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(380, 170, 110, 16);
-
-        jLabel7.setText("Tienen Carro");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(390, 80, 80, 16);
-
-        lno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lno);
-        lno.setBounds(400, 200, 50, 40);
-
-        lsi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lsi);
-        lsi.setBounds(400, 110, 60, 40);
+        jLabel5.setBounds(90, 20, 170, 30);
 
         bagregar.setText("Agregar");
         bagregar.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +135,7 @@ public class formulario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(bagregar);
-        bagregar.setBounds(40, 310, 100, 40);
+        bagregar.setBounds(470, 370, 100, 40);
 
         bborrar.setText("Borrar");
         bborrar.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +144,7 @@ public class formulario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(bborrar);
-        bborrar.setBounds(160, 310, 100, 40);
+        bborrar.setBounds(200, 370, 100, 40);
 
         bmodificar.setText("Modifcar");
         bmodificar.addActionListener(new java.awt.event.ActionListener() {
@@ -168,10 +153,7 @@ public class formulario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(bmodificar);
-        bmodificar.setBounds(280, 310, 110, 40);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 20, 490, 400);
+        bmodificar.setBounds(330, 370, 110, 40);
 
         TablaEncuesta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,8 +168,49 @@ public class formulario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TablaEncuesta);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(530, 110, 390, 180);
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(30, 230, 520, 100);
+
+        jLabel9.setText("Precio:");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(520, 120, 60, 30);
+
+        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(500, 170, 74, 24);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(20, 20, 650, 490);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(690, 60, 140, 160);
+
+        jLabel8.setText("Logo");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(690, 20, 50, 30);
+
+        lno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(lno);
+        lno.setBounds(750, 510, 50, 40);
+
+        jLabel6.setText("No Tienen Carro");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(720, 480, 110, 16);
+
+        lsi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(lsi);
+        lsi.setBounds(740, 420, 60, 40);
+
+        lnumero.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lnumero.setForeground(new java.awt.Color(255, 0, 0));
+        lnumero.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lnumero);
+        lnumero.setBounds(730, 320, 90, 60);
+
+        jLabel7.setText("Tienen Carro");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(730, 390, 80, 16);
 
         jMenu2.setText("Inicio");
 
@@ -237,7 +260,8 @@ public class formulario extends javax.swing.JFrame {
                 lsi.setText(String.valueOf(ClsEncuesta.getConVehiculo()));
                 lno.setText(String.valueOf(ClsEncuesta.getSinVehiculo()));
             }
-
+                
+            GuardarEncuesta();
             tnombre.setText("");
             tedad.setText("");
             tcorreo.setText("");
@@ -270,10 +294,11 @@ public class formulario extends javax.swing.JFrame {
         modeloTabla.setValueAt(tedad.getText(), fila, 1);
         modeloTabla.setValueAt(tcorreo.getText(), fila, 2);
 
-        if (rsi.isSelected())
+        if (rsi.isSelected()) {
             mensaje = "Si";
-        else if (rno.isSelected())
+        } else if (rno.isSelected()) {
             mensaje = "No";
+        }
         modeloTabla.setValueAt(mensaje, fila, 3);
 
     }
@@ -283,14 +308,43 @@ public class formulario extends javax.swing.JFrame {
         modeloTabla.removeRow(fila);
     }
 
+    public void GuardarEncuesta() {
+
+        FileWriter archivo = null;
+        PrintWriter pw = null;
+
+        try {
+            archivo = new FileWriter("C:/Git/Universidad/Programacion 1/NetBeans/ErnestoVargasExamen3/encuesta.txt");
+            pw = new PrintWriter(archivo);
+            pw.println("Nombre: " + tnombre.getText());
+            pw.println("Edad: " + tedad.getText());
+            pw.println("Correo: " + tcorreo.getText());
+           
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != archivo) {
+                    archivo.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+
+            }
+        }
+
+    }
+
     public void Insertar() {
         String mensaje = "";
-        if (tienecarro == true)
+        if (tienecarro == true) {
             mensaje = rsi.getText();
-        else
+        } else {
             mensaje = rno.getText();
+        }
 
-        modeloTabla.addRow(new Object[] { tnombre.getText(), tedad.getText(), tcorreo.getText(), mensaje });
+        modeloTabla.addRow(new Object[]{tnombre.getText(), tedad.getText(), tcorreo.getText(), mensaje});
     }
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -373,12 +427,16 @@ public class formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lno;
     private javax.swing.JLabel lnumero;
     private javax.swing.JLabel lsi;
