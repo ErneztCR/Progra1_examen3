@@ -52,6 +52,8 @@ public class formulario extends javax.swing.JFrame {
         TablaEncuesta = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         tprecio = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -69,32 +71,36 @@ public class formulario extends javax.swing.JFrame {
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(null);
 
-        jLabel1.setText("ACTIVO");
+        jLabel1.setText("ACTIVO:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(330, 130, 90, 40);
+        jLabel1.setBounds(110, 170, 90, 30);
 
         jLabel2.setText("Cantidad:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(40, 100, 90, 40);
+
+        tcantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(tcantidad);
-        tcantidad.setBounds(150, 110, 80, 24);
+        tcantidad.setBounds(150, 110, 80, 20);
 
         jLabel3.setText("Codigo:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(40, 60, 90, 40);
+
+        tcodigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(tcodigo);
-        tcodigo.setBounds(150, 70, 80, 24);
+        tcodigo.setBounds(150, 70, 80, 20);
 
         buttonGroup1.add(rsi);
         rsi.setSelected(true);
         rsi.setText("Si");
         jPanel1.add(rsi);
-        rsi.setBounds(290, 170, 60, 28);
+        rsi.setBounds(200, 170, 60, 28);
 
         buttonGroup1.add(rno);
         rno.setText("No");
         jPanel1.add(rno);
-        rno.setBounds(360, 170, 60, 28);
+        rno.setBounds(270, 170, 60, 28);
 
         jButton1.setText("Agregar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -113,8 +119,10 @@ public class formulario extends javax.swing.JFrame {
         jLabel4.setText("Descripcion:");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(270, 60, 90, 40);
+
+        tdescripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(tdescripcion);
-        tdescripcion.setBounds(360, 70, 180, 24);
+        tdescripcion.setBounds(360, 70, 90, 20);
 
         jLabel5.setText("CONTROL DE INVENTARIOS");
         jPanel1.add(jLabel5);
@@ -165,11 +173,19 @@ public class formulario extends javax.swing.JFrame {
 
         jLabel9.setText("Precio:");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(520, 120, 60, 30);
+        jLabel9.setBounds(270, 110, 60, 30);
 
         tprecio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.add(tprecio);
-        tprecio.setBounds(500, 170, 74, 24);
+        tprecio.setBounds(360, 110, 90, 20);
+
+        jLabel6.setText("TIPO:");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(530, 50, 60, 30);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Desechable", "Comestibles", "Abarrotes", "Ropa" }));
+        jPanel1.add(jComboBox1);
+        jComboBox1.setBounds(490, 100, 120, 26);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(20, 20, 650, 490);
@@ -195,24 +211,22 @@ public class formulario extends javax.swing.JFrame {
 
         if (!tcantidad.getText().equals("") && !tcodigo.getText().equals("") && !tdescripcion.getText().equals("")) {
 
-            if ((Integer.parseInt(tcantidad.getText()) < 18) || (Integer.parseInt(tcantidad.getText()) > 50)) {
-                JOptionPane.showMessageDialog(null, "La edad no es permitida");
-            } else {
-                ConsultaDeActivo();
-                Insertar();
+            ConsultaDeActivo();
+            Insertar();
 
-                encuesta.SetSalvarDatos(tcodigo.getText(), tdescripcion.getText(), Integer.parseInt(tcantidad.getText()), tcodigo.getText(), estaactivo, tprecio.getText());
-                encuesta.setConsecutivo();
-            }
+            encuesta.SetSalvarDatos(tcodigo.getText(), tdescripcion.getText(), Integer.parseInt(tcantidad.getText()), tcodigo.getText(), estaactivo, tprecio.getText());
+            encuesta.setConsecutivo();
                 
             GuardarEncuesta();
             tcodigo.setText("");
-            tcantidad.setText("");
             tdescripcion.setText("");
+            tcantidad.setText("");
+            tprecio.setText("");
+            
             rsi.setSelected(true);
+
         } else {
             JOptionPane.showMessageDialog(null, "Los campos estan en blanco");
-
         }
 
     }// GEN-LAST:event_jButton1ActionPerformed
@@ -235,15 +249,17 @@ public class formulario extends javax.swing.JFrame {
         String mensaje = "";
         int fila = TablaEncuesta.getSelectedRow();
         modeloTabla.setValueAt(tcodigo.getText(), fila, 0);
-        modeloTabla.setValueAt(tcantidad.getText(), fila, 1);
-        modeloTabla.setValueAt(tdescripcion.getText(), fila, 2);
+        modeloTabla.setValueAt(tdescripcion.getText(), fila, 1);
+        modeloTabla.setValueAt(tcantidad.getText(), fila, 3);
+        
 
         if (rsi.isSelected()) {
             mensaje = "Si";
         } else if (rno.isSelected()) {
             mensaje = "No";
         }
-        modeloTabla.setValueAt(mensaje, fila, 3);
+        modeloTabla.setValueAt(mensaje, fila, 5);
+        modeloTabla.setValueAt(tprecio.getText(), fila, 6);
 
     }
 
@@ -357,11 +373,13 @@ public class formulario extends javax.swing.JFrame {
     private javax.swing.JButton breporte;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
