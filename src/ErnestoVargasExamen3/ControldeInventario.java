@@ -1,7 +1,7 @@
 
 package ErnestoVargasExamen3;
 
-public class Resolucionexamen {
+public class ControldeInventario {
 
   public static void main(String[] args) {
     formulario f = new formulario();
