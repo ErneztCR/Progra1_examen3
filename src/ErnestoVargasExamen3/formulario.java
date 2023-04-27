@@ -36,14 +36,14 @@ public class formulario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        tedad = new javax.swing.JTextField();
+        tcantidad = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        tnombre = new javax.swing.JTextField();
+        tcodigo = new javax.swing.JTextField();
         rsi = new javax.swing.JRadioButton();
         rno = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        tcorreo = new javax.swing.JTextField();
+        tdescripcion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         bagregar = new javax.swing.JButton();
         bborrar = new javax.swing.JButton();
@@ -84,14 +84,14 @@ public class formulario extends javax.swing.JFrame {
         jLabel2.setText("Cantidad:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(40, 100, 90, 40);
-        jPanel1.add(tedad);
-        tedad.setBounds(150, 110, 80, 24);
+        jPanel1.add(tcantidad);
+        tcantidad.setBounds(150, 110, 80, 24);
 
         jLabel3.setText("Codigo:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(40, 60, 90, 40);
-        jPanel1.add(tnombre);
-        tnombre.setBounds(150, 70, 80, 24);
+        jPanel1.add(tcodigo);
+        tcodigo.setBounds(150, 70, 80, 24);
 
         buttonGroup1.add(rsi);
         rsi.setSelected(true);
@@ -121,8 +121,8 @@ public class formulario extends javax.swing.JFrame {
         jLabel4.setText("Descripcion:");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(270, 60, 90, 40);
-        jPanel1.add(tcorreo);
-        tcorreo.setBounds(360, 70, 180, 24);
+        jPanel1.add(tdescripcion);
+        tdescripcion.setBounds(360, 70, 180, 24);
 
         jLabel5.setText("CONTROL DE INVENTARIOS");
         jPanel1.add(jLabel5);
@@ -245,16 +245,16 @@ public class formulario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 
-        if (!tedad.getText().equals("") && !tnombre.getText().equals("") && !tcorreo.getText().equals("")) {
+        if (!tcantidad.getText().equals("") && !tcodigo.getText().equals("") && !tdescripcion.getText().equals("")) {
 
-            if ((Integer.parseInt(tedad.getText()) < 18) || (Integer.parseInt(tedad.getText()) > 50)) {
+            if ((Integer.parseInt(tcantidad.getText()) < 18) || (Integer.parseInt(tcantidad.getText()) > 50)) {
                 JOptionPane.showMessageDialog(null, "La edad no es permitida");
             } else {
                 ConsultaDeVehiculo();
                 Insertar();
 
-                encuesta.SetSalvarDatos(tnombre.getText(), tienecarro, Integer.parseInt(tedad.getText()),
-                        tcorreo.getText());
+                encuesta.SetSalvarDatos(tcodigo.getText(), tienecarro, Integer.parseInt(tcantidad.getText()),
+                        tdescripcion.getText());
                 lnumero.setText(String.valueOf(ClsEncuesta.getConsecutivo()));
                 encuesta.setConsecutivo();
                 lsi.setText(String.valueOf(ClsEncuesta.getConVehiculo()));
@@ -262,9 +262,9 @@ public class formulario extends javax.swing.JFrame {
             }
                 
             GuardarEncuesta();
-            tnombre.setText("");
-            tedad.setText("");
-            tcorreo.setText("");
+            tcodigo.setText("");
+            tcantidad.setText("");
+            tdescripcion.setText("");
             rsi.setSelected(true);
         } else {
             JOptionPane.showMessageDialog(null, "Los campos estan en blanco");
@@ -290,9 +290,9 @@ public class formulario extends javax.swing.JFrame {
     public void Modificar() {
         String mensaje = "";
         int fila = TablaEncuesta.getSelectedRow();
-        modeloTabla.setValueAt(tnombre.getText(), fila, 0);
-        modeloTabla.setValueAt(tedad.getText(), fila, 1);
-        modeloTabla.setValueAt(tcorreo.getText(), fila, 2);
+        modeloTabla.setValueAt(tcodigo.getText(), fila, 0);
+        modeloTabla.setValueAt(tcantidad.getText(), fila, 1);
+        modeloTabla.setValueAt(tdescripcion.getText(), fila, 2);
 
         if (rsi.isSelected()) {
             mensaje = "Si";
@@ -314,11 +314,11 @@ public class formulario extends javax.swing.JFrame {
         PrintWriter pw = null;
 
         try {
-            archivo = new FileWriter("C:/Git/Universidad/Programacion 1/NetBeans/ErnestoVargasExamen3/encuesta.txt");
+            archivo = new FileWriter("C:/temp/articulo/" + tcodigo.getText() + ".txt");
             pw = new PrintWriter(archivo);
-            pw.println("Nombre: " + tnombre.getText());
-            pw.println("Edad: " + tedad.getText());
-            pw.println("Correo: " + tcorreo.getText());
+            pw.println("Nombre: " + tcodigo.getText());
+            pw.println("Edad: " + tcantidad.getText());
+            pw.println("Correo: " + tdescripcion.getText());
            
 
         } catch (Exception e) {
@@ -344,7 +344,7 @@ public class formulario extends javax.swing.JFrame {
             mensaje = rno.getText();
         }
 
-        modeloTabla.addRow(new Object[]{tnombre.getText(), tedad.getText(), tcorreo.getText(), mensaje});
+        modeloTabla.addRow(new Object[]{tcodigo.getText(), tcantidad.getText(), tdescripcion.getText(), mensaje});
     }
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -442,8 +442,8 @@ public class formulario extends javax.swing.JFrame {
     private javax.swing.JLabel lsi;
     private javax.swing.JRadioButton rno;
     private javax.swing.JRadioButton rsi;
-    private javax.swing.JTextField tcorreo;
-    private javax.swing.JTextField tedad;
-    private javax.swing.JTextField tnombre;
+    private javax.swing.JTextField tcantidad;
+    private javax.swing.JTextField tcodigo;
+    private javax.swing.JTextField tdescripcion;
     // End of variables declaration//GEN-END:variables
 }

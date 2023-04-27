@@ -1,3 +1,0 @@
-Nombre: Ernesto
-Edad: 33
-Correo: er@
