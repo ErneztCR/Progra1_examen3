@@ -128,6 +128,7 @@ public class FrmReporte extends javax.swing.JFrame {
         lActivo.setText(String.valueOf(ClsEncuesta.getActivo()));
         lInactivo.setText(String.valueOf(ClsEncuesta.getInactivo()));
         lcantidad.setText(String.valueOf(ClsEncuesta.getTotalCantidad()));
+        lpromedio.setText(String.valueOf(ClsEncuesta.getPromedioPrecio()));
 
     }// GEN-LAST:event_formWindowActivated
 
