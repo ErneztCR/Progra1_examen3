@@ -82,5 +82,13 @@ public class ClsEncuesta {
 
         return lcantidad;
     }
+    
+    public static double getPromedioPrecio() {
+    double sumaPrecio = 0;
+    for (int i = 0; i < precio.size(); i++) {
+        sumaPrecio += Double.parseDouble(precio.get(i));
+    }
+    return sumaPrecio / precio.size();
+}
 
 }
