@@ -215,7 +215,6 @@ public class formulario extends javax.swing.JFrame {
             Insertar();
 
             encuesta.SetSalvarDatos(tcodigo.getText(), tdescripcion.getText(), Integer.parseInt(tcantidad.getText()), tcodigo.getText(), estaactivo, tprecio.getText());
-            encuesta.setConsecutivo();
                 
             GuardarEncuesta();
             tcodigo.setText("");
