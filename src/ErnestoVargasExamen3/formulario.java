@@ -278,9 +278,7 @@ public class formulario extends javax.swing.JFrame {
             pw = new PrintWriter(archivo);
             pw.println("Codigo: " + tcodigo.getText());
             pw.println("Descipcion: " + tdescripcion.getText());
-            pw.println("Cantidad: " + tcantidad.getText());
-            
-           
+            pw.println("Cantidad: " + tcantidad.getText()); 
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -298,15 +296,19 @@ public class formulario extends javax.swing.JFrame {
     }
 
     public void Insertar() {
-        String mensaje = "";
-        if (estaactivo == true) {
-            mensaje = rsi.getText();
-        } else {
-            mensaje = rno.getText();
-        }
-
-        modeloTabla.addRow(new Object[]{tcodigo.getText(), tcantidad.getText(), tdescripcion.getText(), mensaje});
+    String mensaje = "";
+    if (estaactivo == true) {
+        mensaje = rsi.getText();
+    } else {
+        mensaje = rno.getText();
     }
+    
+    Object selectedItem = jComboBox1.getSelectedItem();
+    String valorSeleccionado = selectedItem == null ? "" : selectedItem.toString();
+
+    modeloTabla.addRow(new Object[]{tcodigo.getText(), tdescripcion.getText(), tcantidad.getText(), valorSeleccionado, mensaje, tprecio.getText()});
+}
+
 
     private void breporteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bagregarActionPerformed
         Insertar();
