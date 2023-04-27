@@ -310,7 +310,6 @@ public class formulario extends javax.swing.JFrame {
 
 
     private void breporteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bagregarActionPerformed
-        Insertar();
         FrmReporte reporte = new FrmReporte();
         reporte.setSize(700, 500);
         reporte.setVisible(true);
