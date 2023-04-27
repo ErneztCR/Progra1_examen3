@@ -17,7 +17,7 @@ public class formulario extends javax.swing.JFrame {
 
     public formulario() {
         initComponents();
-        String[] columnas = new String[]{"Nombre:", "Edad:", "Correo:,", "Tiene Vehiculo"};
+        String[] columnas = new String[]{"CODIGO:", "DESCRIPCION:", "CANTIDAD:", "TiPO", "ACTIVO:","PRECIO:"};
         modeloTabla.setColumnIdentifiers(columnas);
         TablaEncuesta.setModel(modeloTabla);
     }
@@ -104,7 +104,7 @@ public class formulario extends javax.swing.JFrame {
         jPanel1.add(rno);
         rno.setBounds(360, 170, 60, 28);
 
-        jButton1.setText("Salvar");
+        jButton1.setText("Agregar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton1MouseEntered(evt);
@@ -128,7 +128,7 @@ public class formulario extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(90, 20, 170, 30);
 
-        bagregar.setText("Agregar");
+        bagregar.setText("Reporte");
         bagregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bagregarActionPerformed(evt);
@@ -157,19 +157,19 @@ public class formulario extends javax.swing.JFrame {
 
         TablaEncuesta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
             }
         ));
         jScrollPane1.setViewportView(TablaEncuesta);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(30, 230, 520, 100);
+        jScrollPane1.setBounds(10, 230, 630, 90);
 
         jLabel9.setText("Precio:");
         jPanel1.add(jLabel9);
