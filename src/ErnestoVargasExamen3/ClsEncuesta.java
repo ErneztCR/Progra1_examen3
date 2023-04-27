@@ -65,11 +65,11 @@ public class ClsEncuesta {
         ClsEncuesta.Inactivo++;
     }
 
-    public static int getConVehiculo() {
+    public static int getActivo() {
         return Activo;
     }
 
-    public static int getSinVehiculo() {
+    public static int getInactivo() {
         return Inactivo;
     }
 
