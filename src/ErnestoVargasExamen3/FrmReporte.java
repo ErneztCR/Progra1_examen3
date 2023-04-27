@@ -32,7 +32,7 @@ public class FrmReporte extends javax.swing.JFrame {
         lconcarro = new javax.swing.JLabel();
         lsincarro = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        tnombre = new javax.swing.JTextField();
+        tcodigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         bbuscar = new javax.swing.JButton();
 
@@ -46,40 +46,40 @@ public class FrmReporte extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("REPORTES");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(190, 30, 330, 60);
+        jLabel1.setBounds(260, 0, 100, 40);
 
-        jLabel2.setText("Personas Sin Carro Propio");
+        jLabel2.setText("Codigos Inactivos");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(240, 100, 170, 50);
+        jLabel2.setBounds(210, 100, 110, 50);
 
-        jLabel3.setText("Personas con Carro Propio");
+        jLabel3.setText("Codigos Activos");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(70, 100, 170, 50);
+        jLabel3.setBounds(10, 100, 100, 50);
 
-        jLabel4.setText("Cantidad de Encuestas");
+        jLabel4.setText("Cantidad de Articulos");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(450, 120, 160, 16);
+        jLabel4.setBounds(420, 110, 130, 30);
 
         lcantidad.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lcantidad.setForeground(new java.awt.Color(0, 102, 255));
         lcantidad.setBorder(new javax.swing.border.MatteBorder(null));
         getContentPane().add(lcantidad);
-        lcantidad.setBounds(450, 150, 100, 60);
+        lcantidad.setBounds(560, 110, 60, 30);
 
         lconcarro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lconcarro.setForeground(new java.awt.Color(0, 102, 255));
         lconcarro.setBorder(new javax.swing.border.MatteBorder(null));
         getContentPane().add(lconcarro);
-        lconcarro.setBounds(90, 160, 90, 50);
+        lconcarro.setBounds(120, 110, 60, 30);
 
         lsincarro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lsincarro.setForeground(new java.awt.Color(0, 102, 255));
         lsincarro.setBorder(new javax.swing.border.MatteBorder(null));
         getContentPane().add(lsincarro);
-        lsincarro.setBounds(260, 150, 90, 60);
+        lsincarro.setBounds(340, 110, 60, 30);
 
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -88,13 +88,13 @@ public class FrmReporte extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(70, 330, 110, 30);
-        getContentPane().add(tnombre);
-        tnombre.setBounds(200, 270, 130, 24);
+        jButton1.setBounds(20, 390, 110, 30);
+        getContentPane().add(tcodigo);
+        tcodigo.setBounds(170, 50, 130, 24);
 
-        jLabel5.setText("Buscar por nombre");
+        jLabel5.setText("Buscar por Codigo");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(77, 260, 190, 40);
+        jLabel5.setBounds(20, 40, 120, 40);
 
         bbuscar.setText("Buscar");
         bbuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +103,7 @@ public class FrmReporte extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bbuscar);
-        bbuscar.setBounds(440, 270, 140, 24);
+        bbuscar.setBounds(420, 50, 140, 24);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -115,14 +115,14 @@ public class FrmReporte extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowActivated
 
-        lconcarro.setText(String.valueOf(ClsEncuesta.getConVehiculo()));
-        lsincarro.setText(String.valueOf(ClsEncuesta.getSinVehiculo()));
+        lconcarro.setText(String.valueOf(ClsEncuesta.getActivo()));
+        lsincarro.setText(String.valueOf(ClsEncuesta.getInactivo()));
         lcantidad.setText(String.valueOf(ClsEncuesta.getConsecutivo()));
 
     }// GEN-LAST:event_formWindowActivated
 
     private void bbuscarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bbuscarActionPerformed
-        ClsEncuesta.BuscarPornombre(tnombre.getText());
+        ClsEncuesta.BuscarPorcodigo(tcodigo.getText());
 
     }// GEN-LAST:event_bbuscarActionPerformed
 
@@ -180,6 +180,6 @@ public class FrmReporte extends javax.swing.JFrame {
     private javax.swing.JLabel lcantidad;
     private javax.swing.JLabel lconcarro;
     private javax.swing.JLabel lsincarro;
-    private javax.swing.JTextField tnombre;
+    private javax.swing.JTextField tcodigo;
     // End of variables declaration//GEN-END:variables
 }

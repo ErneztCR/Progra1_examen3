@@ -45,7 +45,7 @@ public class formulario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         tdescripcion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        bagregar = new javax.swing.JButton();
+        breporte = new javax.swing.JButton();
         bborrar = new javax.swing.JButton();
         bmodificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -128,14 +128,14 @@ public class formulario extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(90, 20, 170, 30);
 
-        bagregar.setText("Reporte");
-        bagregar.addActionListener(new java.awt.event.ActionListener() {
+        breporte.setText("Reporte");
+        breporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bagregarActionPerformed(evt);
+                breporteActionPerformed(evt);
             }
         });
-        jPanel1.add(bagregar);
-        bagregar.setBounds(470, 370, 100, 40);
+        jPanel1.add(breporte);
+        breporte.setBounds(470, 370, 100, 40);
 
         bborrar.setText("Borrar");
         bborrar.addActionListener(new java.awt.event.ActionListener() {
@@ -358,8 +358,11 @@ public class formulario extends javax.swing.JFrame {
         System.exit(0);
     }// GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void bagregarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bagregarActionPerformed
+    private void breporteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bagregarActionPerformed
         Insertar();
+        FrmReporte reporte = new FrmReporte();
+        reporte.setSize(700, 500);
+        reporte.setVisible(true);
     }// GEN-LAST:event_bagregarActionPerformed
 
     private void bmodificarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bmodificarActionPerformed
@@ -415,9 +418,9 @@ public class formulario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaEncuesta;
-    private javax.swing.JButton bagregar;
     private javax.swing.JButton bborrar;
     private javax.swing.JButton bmodificar;
+    private javax.swing.JButton breporte;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
