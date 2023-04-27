@@ -16,7 +16,7 @@ public class ClsEncuesta {
     static int consecutivo;
 
     public ClsEncuesta() {
-        consecutivo = 1;
+        consecutivo = 0;
         Activo = 0;
         Inactivo = 0;
     }
@@ -46,22 +46,14 @@ public class ClsEncuesta {
         }
     }
 
-    // Get para ver el siguiente numero de la encuesta
-    public static int getConsecutivo() {
-        return consecutivo;
-    }
-
-    // Set para asignar un nuevo numero de encuesta
-    public void setConsecutivo() {
-        ClsEncuesta.consecutivo++;
-    }
-
     public void setActivo() {
         ClsEncuesta.Activo++;
+        ClsEncuesta.consecutivo = ClsEncuesta.Activo + ClsEncuesta.Inactivo;
     }
 
     public void setInactivo() {
         ClsEncuesta.Inactivo++;
+        ClsEncuesta.consecutivo = ClsEncuesta.Activo + ClsEncuesta.Inactivo;
     }
 
     public static int getActivo() {
@@ -79,6 +71,16 @@ public class ClsEncuesta {
         tipo.add(Tipo);
         activo.add(Activo);
         precio.add(Precio);
+    }
+
+    public static int getTotalCantidad() {
+        int lcantidad = 0; // Variable auxiliar para acumular la suma de todas las cantidades
+
+        for (int i = 0; i < cantidad.size(); i++) {
+            lcantidad += cantidad.get(i);
+        }
+
+        return lcantidad;
     }
 
 }
