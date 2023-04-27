@@ -6,35 +6,39 @@ import javax.swing.JOptionPane;
 
 public class ClsEncuesta {
 
-    static ArrayList<String> nombre = new ArrayList<>();
-    static ArrayList<Boolean> carro = new ArrayList<>();
-    static ArrayList<Integer> edad = new ArrayList<>();
-    static ArrayList<String> correo = new ArrayList<>();
-    static int ConVehiculo, SinVehiculo;
+    static ArrayList<String> codigo = new ArrayList<>();
+    static ArrayList<String> descripcion = new ArrayList<>();
+    static ArrayList<Integer> cantidad = new ArrayList<>();
+    static ArrayList<Integer> tipo = new ArrayList<>();
+    static ArrayList<Boolean> activo = new ArrayList<>();
+    static ArrayList<Boolean> precio = new ArrayList<>();
+    
+    
+    static int Activo, Inactivo;
     static int consecutivo;
 
     public ClsEncuesta() {
         consecutivo = 1;
-        ConVehiculo = 0;
-        SinVehiculo = 0;
+        Activo = 0;
+        Inactivo = 0;
     }
 
-    public ClsEncuesta(String nombre) {
+    public ClsEncuesta(String codigo) {
     }
 
-    public static void BuscarPornombre(String Nombre) {
+    public static void BuscarPorcodigo(String Codigo) {
 
         Boolean encontrado = false;
-        String Vehiculo = "No tiene Vehiculo";
-        for (int i = 0; i < ClsEncuesta.nombre.size(); i++) {
+        String Estado = "No esta activo";
+        for (int i = 0; i < ClsEncuesta.codigo.size(); i++) {
 
-            if (ClsEncuesta.nombre.get(i).toLowerCase().equals(Nombre.toLowerCase())) {
+            if (ClsEncuesta.codigo.get(i).toLowerCase().equals(Codigo.toLowerCase())) {
                 encontrado = true;
-                if (ClsEncuesta.carro.get(i)) {
-                    Vehiculo = "Si tiene Vehiculo";
+                if (ClsEncuesta.activo.get(i)) {
+                    Estado = "Si esta activo";
                 }
-                JOptionPane.showMessageDialog(null, "Nombre: " + ClsEncuesta.nombre.get(i) + "\n\nEdad: "
-                        + ClsEncuesta.edad.get(i) + "\n\nCarro: " + Vehiculo);
+                JOptionPane.showMessageDialog(null, "Codigo: " + ClsEncuesta.codigo.get(i) + "\n\nCantidad: "
+                        + ClsEncuesta.cantidad.get(i) + "\n\nActivo: " + Estado);
                 break;
             }
 
@@ -53,27 +57,29 @@ public class ClsEncuesta {
         ClsEncuesta.consecutivo++;
     }
 
-    public void setConVehiculo() {
-        ClsEncuesta.ConVehiculo++;
+    public void setActivo() {
+        ClsEncuesta.Activo++;
     }
 
-    public void setSinVehiculo() {
-        ClsEncuesta.SinVehiculo++;
+    public void setInactivo() {
+        ClsEncuesta.Inactivo++;
     }
 
     public static int getConVehiculo() {
-        return ConVehiculo;
+        return Activo;
     }
 
     public static int getSinVehiculo() {
-        return SinVehiculo;
+        return Inactivo;
     }
 
-    public void SetSalvarDatos(String Nombre, Boolean Carro, int Edad, String Correo) {
-        nombre.add(Nombre);
-        carro.add(Carro);
-        edad.add(Edad);
-        correo.add(Correo);
+    public void SetSalvarDatos(String Codigo, String Descripcion, int Cantidad, String Tipo, Boolean Activo, String Precio) {
+        codigo.add(Codigo);
+        descripcion.add(Descripcion);
+        cantidad.add(Cantidad);
+        tipo.add(Tipo);
+        activo.add(Activo);
+        precio.add(Precio);
     }
 
 }

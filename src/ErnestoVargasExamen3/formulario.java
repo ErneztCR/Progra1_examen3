@@ -13,7 +13,7 @@ public class formulario extends javax.swing.JFrame {
 
     ClsEncuesta encuesta = new ClsEncuesta();
     DefaultTableModel modeloTabla = new DefaultTableModel();
-    boolean tienecarro = false;
+    boolean estaactivo = false;
 
     public formulario() {
         initComponents();
@@ -51,7 +51,7 @@ public class formulario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaEncuesta = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tprecio = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         lno = new javax.swing.JLabel();
@@ -175,9 +175,9 @@ public class formulario extends javax.swing.JFrame {
         jPanel1.add(jLabel9);
         jLabel9.setBounds(520, 120, 60, 30);
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(500, 170, 74, 24);
+        tprecio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(tprecio);
+        tprecio.setBounds(500, 170, 74, 24);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(20, 20, 650, 490);
@@ -250,15 +250,14 @@ public class formulario extends javax.swing.JFrame {
             if ((Integer.parseInt(tcantidad.getText()) < 18) || (Integer.parseInt(tcantidad.getText()) > 50)) {
                 JOptionPane.showMessageDialog(null, "La edad no es permitida");
             } else {
-                ConsultaDeVehiculo();
+                ConsultaDeActivo();
                 Insertar();
 
-                encuesta.SetSalvarDatos(tcodigo.getText(), tienecarro, Integer.parseInt(tcantidad.getText()),
-                        tdescripcion.getText());
+                encuesta.SetSalvarDatos(tcodigo.getText(), tdescripcion.getText(), Integer.parseInt(tcantidad.getText()), tcodigo.getText(), estaactivo, tprecio.getText());
                 lnumero.setText(String.valueOf(ClsEncuesta.getConsecutivo()));
                 encuesta.setConsecutivo();
-                lsi.setText(String.valueOf(ClsEncuesta.getConVehiculo()));
-                lno.setText(String.valueOf(ClsEncuesta.getSinVehiculo()));
+                lsi.setText(String.valueOf(ClsEncuesta.getActivo()));
+                lno.setText(String.valueOf(ClsEncuesta.getInactivo()));
             }
                 
             GuardarEncuesta();
@@ -273,13 +272,13 @@ public class formulario extends javax.swing.JFrame {
 
     }// GEN-LAST:event_jButton1ActionPerformed
 
-    public void ConsultaDeVehiculo() {
+    public void ConsultaDeActivo() {
         if (rsi.isSelected()) {
-            tienecarro = true;
-            encuesta.setConVehiculo();
+            estaactivo = true;
+            encuesta.setActivo();
         } else if (rno.isSelected()) {
-            tienecarro = false;
-            encuesta.setSinVehiculo();
+            estaactivo = false;
+            encuesta.setInactivo();
         }
     }
 
@@ -316,9 +315,10 @@ public class formulario extends javax.swing.JFrame {
         try {
             archivo = new FileWriter("C:/temp/articulo/" + tcodigo.getText() + ".txt");
             pw = new PrintWriter(archivo);
-            pw.println("Nombre: " + tcodigo.getText());
-            pw.println("Edad: " + tcantidad.getText());
-            pw.println("Correo: " + tdescripcion.getText());
+            pw.println("Codigo: " + tcodigo.getText());
+            pw.println("Descipcion: " + tdescripcion.getText());
+            pw.println("Cantidad: " + tcantidad.getText());
+            
            
 
         } catch (Exception e) {
@@ -338,7 +338,7 @@ public class formulario extends javax.swing.JFrame {
 
     public void Insertar() {
         String mensaje = "";
-        if (tienecarro == true) {
+        if (estaactivo == true) {
             mensaje = rsi.getText();
         } else {
             mensaje = rno.getText();
@@ -436,7 +436,6 @@ public class formulario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lno;
     private javax.swing.JLabel lnumero;
     private javax.swing.JLabel lsi;
@@ -445,5 +444,6 @@ public class formulario extends javax.swing.JFrame {
     private javax.swing.JTextField tcantidad;
     private javax.swing.JTextField tcodigo;
     private javax.swing.JTextField tdescripcion;
+    private javax.swing.JTextField tprecio;
     // End of variables declaration//GEN-END:variables
 }
