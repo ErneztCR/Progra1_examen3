@@ -1,4 +1,3 @@
-
 package ErnestoVargasExamen3;
 
 import java.util.ArrayList;
@@ -9,11 +8,10 @@ public class ClsEncuesta {
     static ArrayList<String> codigo = new ArrayList<>();
     static ArrayList<String> descripcion = new ArrayList<>();
     static ArrayList<Integer> cantidad = new ArrayList<>();
-    static ArrayList<Integer> tipo = new ArrayList<>();
+    static ArrayList<String> tipo = new ArrayList<>();
     static ArrayList<Boolean> activo = new ArrayList<>();
-    static ArrayList<Boolean> precio = new ArrayList<>();
-    
-    
+    static ArrayList<String> precio = new ArrayList<>();
+
     static int Activo, Inactivo;
     static int consecutivo;
 
@@ -43,8 +41,9 @@ public class ClsEncuesta {
             }
 
         }
-        if (!encontrado)
+        if (!encontrado) {
             JOptionPane.showMessageDialog(null, "NO existe");
+        }
     }
 
     // Get para ver el siguiente numero de la encuesta
