@@ -54,15 +54,7 @@ public class formulario extends javax.swing.JFrame {
         tprecio = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        lno = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        lsi = new javax.swing.JLabel();
-        lnumero = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -189,49 +181,6 @@ public class formulario extends javax.swing.JFrame {
         jLabel8.setText("Logo");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(690, 20, 50, 30);
-
-        lno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(lno);
-        lno.setBounds(750, 510, 50, 40);
-
-        jLabel6.setText("No Tienen Carro");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(720, 480, 110, 16);
-
-        lsi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(lsi);
-        lsi.setBounds(740, 420, 60, 40);
-
-        lnumero.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lnumero.setForeground(new java.awt.Color(255, 0, 0));
-        lnumero.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(lnumero);
-        lnumero.setBounds(730, 320, 90, 60);
-
-        jLabel7.setText("Tienen Carro");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(730, 390, 80, 16);
-
-        jMenu2.setText("Inicio");
-
-        jMenuItem1.setText("Reportes");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem1);
-
-        jMenuItem2.setText("Salir");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu2);
-
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -240,7 +189,6 @@ public class formulario extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowActivated
 
         this.show();
-        lnumero.setText(String.valueOf(encuesta.getConsecutivo()));
     }// GEN-LAST:event_formWindowActivated
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
@@ -254,10 +202,7 @@ public class formulario extends javax.swing.JFrame {
                 Insertar();
 
                 encuesta.SetSalvarDatos(tcodigo.getText(), tdescripcion.getText(), Integer.parseInt(tcantidad.getText()), tcodigo.getText(), estaactivo, tprecio.getText());
-                lnumero.setText(String.valueOf(ClsEncuesta.getConsecutivo()));
                 encuesta.setConsecutivo();
-                lsi.setText(String.valueOf(ClsEncuesta.getActivo()));
-                lno.setText(String.valueOf(ClsEncuesta.getInactivo()));
             }
                 
             GuardarEncuesta();
@@ -347,17 +292,6 @@ public class formulario extends javax.swing.JFrame {
         modeloTabla.addRow(new Object[]{tcodigo.getText(), tcantidad.getText(), tdescripcion.getText(), mensaje});
     }
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem1ActionPerformed
-        FrmReporte reporte = new FrmReporte();
-        reporte.setSize(700, 500);
-        reporte.setVisible(true);
-
-    }// GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem2ActionPerformed
-        System.exit(0);
-    }// GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void breporteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bagregarActionPerformed
         Insertar();
         FrmReporte reporte = new FrmReporte();
@@ -428,20 +362,12 @@ public class formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lno;
-    private javax.swing.JLabel lnumero;
-    private javax.swing.JLabel lsi;
     private javax.swing.JRadioButton rno;
     private javax.swing.JRadioButton rsi;
     private javax.swing.JTextField tcantidad;
